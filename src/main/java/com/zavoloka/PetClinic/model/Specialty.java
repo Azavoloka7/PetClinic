@@ -19,8 +19,12 @@ public class Specialty {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "specialties")
-    private Set<Vet> vets = new HashSet<>();
+    @ManyToMany
+    @JoinTable(
+            name = "vet_specialties",
+            joinColumns = @JoinColumn(name = "vet_id"),
+            inverseJoinColumns = @JoinColumn(name = "specialty_id"))
+    private Set<Specialty> specialties = new HashSet<>();
 
     // Constructors, getters, setters, hashCode, equals, and other methods
 }
