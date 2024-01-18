@@ -10,7 +10,8 @@ import javax.sql.DataSource;
 @Configuration
 public class JpaConfig {
 
-    @Bean
+
+    @Bean(name = "jpaEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder, DataSource dataSource) {
         return builder
                 .dataSource(dataSource)

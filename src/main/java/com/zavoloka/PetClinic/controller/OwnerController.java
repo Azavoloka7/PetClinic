@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -41,7 +42,7 @@ public class OwnerController {
     }
 
     @PostMapping("/new")
-    public String processCreationForm(@ModelAttribute("owner") Owner owner) {
+    public String processCreationForm(@Valid @ModelAttribute("owner") Owner owner) {
         ownerService.saveOwner(owner);
         return "redirect:/owners/" + owner.getId();
     }
@@ -54,7 +55,7 @@ public class OwnerController {
     }
 
     @PostMapping("/{ownerId}/edit")
-    public String processUpdateForm(@ModelAttribute("owner") Owner owner, @PathVariable Long ownerId) {
+    public String processUpdateForm(@Valid @ModelAttribute("owner") Owner owner, @PathVariable Long ownerId) {
         owner.setId(ownerId);
         ownerService.saveOwner(owner);
         return "redirect:/owners/" + owner.getId();

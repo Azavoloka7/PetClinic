@@ -1,20 +1,20 @@
 package com.zavoloka.PetClinic.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Setter
 @Getter
 @Entity
-@Table(name = "owners")
+@Table (name = "owners")
 public class Owner {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "first_name")

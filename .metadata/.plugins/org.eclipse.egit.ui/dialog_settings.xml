@@ -3,8 +3,8 @@
 	<item key="GitSelectRepositoryPage.lastRepository" value="C:\Users\zavol\git\PetClinic\.git"/>
 	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="1"/>
 	<list key="EGit.KnownHosts">
-		<item value="bitbucket.org"/>
 		<item value="git.eclipse.org"/>
+		<item value="bitbucket.org"/>
 		<item value="github.com"/>
 	</list>
 	<section name="GitImportWizard">

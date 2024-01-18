@@ -1,9 +1,10 @@
 package com.zavoloka.PetClinic.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -11,11 +12,11 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "vets")
+@Table (name = "vets")
 public class Vet {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "first_name")
