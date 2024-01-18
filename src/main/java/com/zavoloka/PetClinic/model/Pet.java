@@ -1,13 +1,13 @@
 package com.zavoloka.PetClinic.model;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -19,17 +19,19 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-   @Column(name = "name")
-   private String name;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
-
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
 
+    @Getter
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+    private Set<Visit> visits = new HashSet<>();
 
     @Override
     public int hashCode() {
@@ -56,5 +58,15 @@ public class Pet {
                 ", birthDate=" + birthDate +
                 ", owner=" + owner +
                 '}';
+    }
+
+    public void addVisit(Visit visit) {
+        visits.add(visit);
+        visit.setPet(this);
+    }
+
+    public void removeVisit(Visit visit) {
+        visits.remove(visit);
+        visit.setPet(null);
     }
 }

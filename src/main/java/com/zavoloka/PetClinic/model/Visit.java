@@ -27,7 +27,19 @@ public class Visit {
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
-    // Constructors, getters, setters, and other methods
+    // Constructors
+
+    public Visit() {
+        // Default constructor
+    }
+
+    public Visit(LocalDate date, String description, Pet pet) {
+        this.date = date;
+        this.description = description;
+        this.pet = pet;
+    }
+
+    // Getters, setters
 
     // Implementing hashCode and equals
     @Override
@@ -56,8 +68,4 @@ public class Visit {
                 ", pet=" + pet +
                 '}';
     }
-
-    // Constructors, getters, setters
-    // ...
-
 }

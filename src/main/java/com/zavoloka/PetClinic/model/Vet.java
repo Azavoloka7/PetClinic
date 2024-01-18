@@ -30,7 +30,19 @@ public class Vet {
             inverseJoinColumns = @JoinColumn(name = "specialty_id"))
     private Set<Specialty> specialties = new HashSet<>();
 
-    // Constructors, getters, setters, and other methods
+    // Constructors, getters, setters
+
+    // Add convenience methods for adding/removing specialties as needed
+
+    public void addSpecialty(Specialty specialty) {
+        specialties.add(specialty);
+        specialty.getVets().add(this);
+    }
+
+    public void removeSpecialty(Specialty specialty) {
+        specialties.remove(specialty);
+        specialty.getVets().remove(this);
+    }
 
     // Implementing hashCode and equals
     @Override
@@ -59,8 +71,4 @@ public class Vet {
                 ", specialties=" + specialties +
                 '}';
     }
-
-    // Constructors, getters, setters
-    // ...
-
 }

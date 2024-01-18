@@ -24,16 +24,18 @@ public class Specialty {
     @ManyToMany
     @JoinTable(
             name = "vet_specialties",
-            joinColumns = @JoinColumn(name = "vet_id"),
-            inverseJoinColumns = @JoinColumn(name = "specialty_id"))
-    private Set<Specialty> specialties = new HashSet<>();
+            joinColumns = @JoinColumn(name = "specialty_id"),
+            inverseJoinColumns = @JoinColumn(name = "vet_id"))
+    private Set<Vet> vets = new HashSet<>();
+    @Setter
+    private Set<Specialty> specialties;
 
     // Constructors, getters, setters, and other methods
 
     // Implementing hashCode and equals
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, specialties);
+        return Objects.hash(id, name, vets);
     }
 
     @Override
@@ -43,7 +45,7 @@ public class Specialty {
         Specialty specialty = (Specialty) obj;
         return Objects.equals(id, specialty.id) &&
                 Objects.equals(name, specialty.name) &&
-                Objects.equals(specialties, specialty.specialties);
+                Objects.equals(vets, specialty.vets);
     }
 
     // Implementing toString
@@ -52,12 +54,8 @@ public class Specialty {
         return "Specialty{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", specialties=" + specialties +
+                ", vets=" + vets +
                 '}';
     }
 
-    // Constructors, getters, setters
-    // ...
-
 }
-

@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>3.2.1</version> <!-- Update to the latest stable version -->
+		<relativePath /> <!-- remove this line if the parent is not in the same directory -->
 	</parent>
+
 	<groupId>com.zavoloka</groupId>
 	<artifactId>PetClinic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PetClinic</name>
-	<description>Demo project for Spring Boot for pets clinic </description>
+	<description>Demo project for Spring Boot for pets clinic</description>
+
 	<properties>
-		<java.version>21</java.version>
+		<java.version>21</java.version> <!-- Update to the desired Java version -->
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -36,19 +41,12 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.4.1.Final</version> <!-- Use the latest version -->
+			<version>5.5.6.Final</version> <!-- Use the latest version -->
 		</dependency>
-
 		<dependency>
-<<<<<<< HEAD
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.33</version> <!-- Replace with the latest version available -->
-=======
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
-			<version>8.2.0</version>
->>>>>>> b03c5ece807bab20888e3133a841c57faad47aae
+			<version>8.2.0</version> <!-- Replace with the latest version available -->
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -56,36 +54,40 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.dom4j</groupId>
-			<artifactId>dom4j</artifactId>
-			<version>2.1.3</version>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>javax.persistence-api</artifactId>
-			<version>2.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jetbrains</groupId>
-			<artifactId>annotations</artifactId>
-			<version>17.0.0</version>
-			<scope>compile</scope>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-autoconfigure</artifactId>
+			<artifactId>spring-boot-test</artifactId>
 			<version>3.2.1</version>
+			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.9.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>5.7.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>5.7.0</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Other dependencies... -->
 	</dependencies>
 
 	<build>
@@ -102,8 +104,14 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.5.0</version> <!-- Add the appropriate version -->
+			</plugin>
 		</plugins>
 	</build>
+
 	<distributionManagement>
 		<repository>
 			<id>github</id>
@@ -114,5 +122,4 @@
 			<url>https://maven.pkg.github.com/Azavoloka7/PetClinic/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
-
 </project>
