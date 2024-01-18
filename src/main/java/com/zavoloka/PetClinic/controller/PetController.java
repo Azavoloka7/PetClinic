@@ -13,8 +13,12 @@ import java.util.List;
 @RequestMapping("/pets")
 public class PetController {
 
+    private final PetService petService;
+
     @Autowired
-    private PetService petService;
+    public PetController(PetService petService) {
+        this.petService = petService;
+    }
 
     @GetMapping
     public String listPets(Model model) {

@@ -5,7 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -26,5 +28,36 @@ public class Specialty {
             inverseJoinColumns = @JoinColumn(name = "specialty_id"))
     private Set<Specialty> specialties = new HashSet<>();
 
-    // Constructors, getters, setters, hashCode, equals, and other methods
+    // Constructors, getters, setters, and other methods
+
+    // Implementing hashCode and equals
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, specialties);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Specialty specialty = (Specialty) obj;
+        return Objects.equals(id, specialty.id) &&
+                Objects.equals(name, specialty.name) &&
+                Objects.equals(specialties, specialty.specialties);
+    }
+
+    // Implementing toString
+    @Override
+    public String toString() {
+        return "Specialty{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", specialties=" + specialties +
+                '}';
+    }
+
+    // Constructors, getters, setters
+    // ...
+
 }
+

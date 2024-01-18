@@ -1,18 +1,18 @@
 package com.zavoloka.PetClinic.model;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+
 @Getter
 @Setter
 @Entity
 @Table(name = "vets")
 public class Vet {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +30,37 @@ public class Vet {
             inverseJoinColumns = @JoinColumn(name = "specialty_id"))
     private Set<Specialty> specialties = new HashSet<>();
 
-    // Constructors, getters, setters, hashCode, equals, and other methods
+    // Constructors, getters, setters, and other methods
+
+    // Implementing hashCode and equals
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, specialties);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Vet vet = (Vet) obj;
+        return Objects.equals(id, vet.id) &&
+                Objects.equals(firstName, vet.firstName) &&
+                Objects.equals(lastName, vet.lastName) &&
+                Objects.equals(specialties, vet.specialties);
+    }
+
+    // Implementing toString
+    @Override
+    public String toString() {
+        return "Vet{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", specialties=" + specialties +
+                '}';
+    }
+
+    // Constructors, getters, setters
+    // ...
+
 }

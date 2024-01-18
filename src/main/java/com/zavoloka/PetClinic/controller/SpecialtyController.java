@@ -35,7 +35,7 @@ public class SpecialtyController {
     }
 
     @GetMapping("/new")
-    public String initCreationForm(@org.jetbrains.annotations.NotNull Model model) {
+    public String initCreationForm(Model model) {
         model.addAttribute("specialty", new Specialty());
         return "specialties/createOrUpdateSpecialtyForm";
     }

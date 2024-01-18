@@ -5,12 +5,13 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-@Setter
+import java.util.Objects;
+
 @Getter
+@Setter
 @Entity
 @Table(name = "visits")
 public class Visit {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +27,37 @@ public class Visit {
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
-    // Constructors, getters, setters, hashCode, equals, and other methods
+    // Constructors, getters, setters, and other methods
+
+    // Implementing hashCode and equals
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, date, description, pet);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Visit visit = (Visit) obj;
+        return Objects.equals(id, visit.id) &&
+                Objects.equals(date, visit.date) &&
+                Objects.equals(description, visit.description) &&
+                Objects.equals(pet, visit.pet);
+    }
+
+    // Implementing toString
+    @Override
+    public String toString() {
+        return "Visit{" +
+                "id=" + id +
+                ", date=" + date +
+                ", description='" + description + '\'' +
+                ", pet=" + pet +
+                '}';
+    }
+
+    // Constructors, getters, setters
+    // ...
+
 }

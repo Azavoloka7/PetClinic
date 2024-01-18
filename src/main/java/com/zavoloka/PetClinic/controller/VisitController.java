@@ -13,8 +13,12 @@ import java.util.List;
 @RequestMapping("/visits")
 public class VisitController {
 
+    private final VisitService visitService;
+
     @Autowired
-    private VisitService visitService;
+    public VisitController(VisitService visitService) {
+        this.visitService = visitService;
+    }
 
     @GetMapping
     public String listVisits(Model model) {

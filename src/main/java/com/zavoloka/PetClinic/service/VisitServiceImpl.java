@@ -2,7 +2,6 @@ package com.zavoloka.PetClinic.service;
 
 import com.zavoloka.PetClinic.model.Visit;
 import com.zavoloka.PetClinic.repository.VisitRepository;
-import com.zavoloka.PetClinic.model.Visit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

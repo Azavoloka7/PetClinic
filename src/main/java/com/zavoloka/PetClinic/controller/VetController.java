@@ -13,8 +13,12 @@ import java.util.List;
 @RequestMapping("/vets")
 public class VetController {
 
+    private final VetService vetService;
+
     @Autowired
-    private VetService vetService;
+    public VetController(VetService vetService) {
+        this.vetService = vetService;
+    }
 
     @GetMapping
     public String listVets(Model model) {
