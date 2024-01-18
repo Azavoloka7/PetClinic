@@ -40,9 +40,15 @@
 		</dependency>
 
 		<dependency>
+<<<<<<< HEAD
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.33</version> <!-- Replace with the latest version available -->
+=======
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.2.0</version>
+>>>>>>> b03c5ece807bab20888e3133a841c57faad47aae
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
